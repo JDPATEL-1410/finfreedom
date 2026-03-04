@@ -113,7 +113,7 @@ export default function InflationCalculator() {
                                         <CartesianGrid strokeDasharray="3 3" stroke="#E9EEF4" />
                                         <XAxis dataKey="year" tick={{ fontSize: 11 }} tickFormatter={y => `Yr ${y}`} />
                                         <YAxis tick={{ fontSize: 11 }} tickFormatter={v => formatCurrency(v)} />
-                                        <Tooltip formatter={(v: number) => formatCurrency(v)} />
+                                        <Tooltip formatter={(v: any) => formatCurrency(v)} />
                                         <Legend />
                                         <Line type="monotone" dataKey="Cost of Living" stroke="#EB3E4A" strokeWidth={2} dot={false} />
                                         <Line type="monotone" dataKey="Purchasing Power" stroke="#335C8E" strokeWidth={2} dot={false} />

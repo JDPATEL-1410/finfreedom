@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
     ChevronDown,
-    ChevronUp,
+    ChevronRight,
     Search,
     HelpCircle,
     MessageCircle,
     Phone,
     ArrowRight
 } from 'lucide-react';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import PageHeader from '../components/layout/PageHeader';
 import { getImage } from '../data/images';
@@ -122,7 +123,7 @@ export default function FAQs() {
                         {/* Nav Sidebar */}
                         <div className="lg:w-1/4">
                             <div className="space-y-2 sticky top-24">
-                                {FAQS.map(cat => (
+                                {FAQS.map((cat, _catIdx) => (
                                     <button
                                         key={cat.category}
                                         onClick={() => setActiveTab(cat.category)}
@@ -147,18 +148,18 @@ export default function FAQs() {
                             </div>
                         </div>
 
-                        {/* FAQ List */}
                         <div className="lg:w-3/4 space-y-8">
-                            {filteredFaqs.map((cat, catIdx) => (
+                            {filteredFaqs.map((cat, _catIdx) => (
+
                                 <div
                                     key={cat.category}
                                     className={activeTab === cat.category || searchTerm ? 'block' : 'hidden md:hidden lg:hidden'}
                                 >
                                     <h3 className="text-navy font-display font-bold text-2xl mb-6">{cat.category}</h3>
                                     <div className="space-y-4">
-                                        {cat.items.map((item, idx) => (
+                                        {cat.items.map((item, _idx) => (
                                             <div
-                                                key={idx}
+                                                key={_idx}
                                                 className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
                                             >
                                                 <button

@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, ArrowRight, Heart, Activity, Umbrella, Home, Car, Plane, CheckCircle2 } from 'lucide-react';
+import { Shield, Heart, Activity, Umbrella, Home, CheckCircle2 } from 'lucide-react';
 import PageHeader from '../../components/layout/PageHeader';
 import { getImage } from '../../data/images';
 

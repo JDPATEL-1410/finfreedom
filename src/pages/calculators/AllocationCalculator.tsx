@@ -80,7 +80,8 @@ export default function AllocationCalculator() {
                                         <input type="range" min={10000} max={100000000} step={10000} value={v.totalPortfolio || 0} onChange={e => setValue('totalPortfolio', +e.target.value)} className="w-full mt-2 accent-primary" />
                                         <p className="text-primary text-sm font-semibold mt-1">{formatCurrencyFull(v.totalPortfolio || 0)}</p>
                                     </div>
-                                    {ASSET_INFO.map((asset, i) => {
+                                    {ASSET_INFO.map((asset, _i) => {
+
                                         const pct = (v[asset.key as keyof F] as number) || 0;
                                         return (
                                             <div key={asset.key}>
@@ -112,7 +113,7 @@ export default function AllocationCalculator() {
                                         <Pie data={pieData} cx="50%" cy="50%" outerRadius={110} innerRadius={60} paddingAngle={3} dataKey="value">
                                             {pieData.map((d, i) => <Cell key={i} fill={d.color} />)}
                                         </Pie>
-                                        <Tooltip formatter={(v, name) => [`${v}%`, name]} />
+                                        <Tooltip formatter={(v: any, name: any) => [`${v}%`, name]} />
                                         <Legend />
                                     </PieChart>
                                 </ResponsiveContainer>

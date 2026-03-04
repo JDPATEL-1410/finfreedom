@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Download, RefreshCw } from 'lucide-react';
 import PageHeader from '../../components/layout/PageHeader';
 import { getImage } from '../../data/images';
@@ -53,14 +53,7 @@ export default function RetirementCalculator() {
         setIsPDF(false);
     };
 
-    const chartData = result
-        ? [
-            { name: 'Current Savings\n(Assumed 0)', value: 0 },
-            { name: 'Monthly SIP\n×12 months', value: Math.round((result.monthlySIPNeeded || 0) * 12 * result.yearsToRetirement) },
-            { name: 'Target Corpus', value: Math.round(result.retirementCorpus) },
-            { name: 'Monthly at\nRetirement', value: Math.round(result.monthlyExpensesAtRetirement) },
-        ]
-        : [];
+    // chartData is used in the BarChart below directly via array definition
 
     return (
         <>
@@ -136,7 +129,7 @@ export default function RetirementCalculator() {
                                                 <CartesianGrid strokeDasharray="3 3" stroke="#E9EEF4" />
                                                 <XAxis dataKey="name" tick={{ fontSize: 10 }} />
                                                 <YAxis tick={{ fontSize: 10 }} tickFormatter={v => formatCurrency(v)} />
-                                                <Tooltip formatter={(v: number) => formatCurrency(v)} />
+                                                <Tooltip formatter={(v: any) => formatCurrency(v)} />
                                                 <Bar dataKey="value" fill="#335C8E" radius={[6, 6, 0, 0]} />
                                             </BarChart>
                                         </ResponsiveContainer>

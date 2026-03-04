@@ -40,8 +40,8 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 const img = getImage('calculators/sip');
 
 export default function SIPCalculator() {
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [result, setResult] = useState<ReturnType<typeof calculateSIP> | null>(null);
+    const [searchParams] = useSearchParams();
+    const [_result, setResult] = useState<ReturnType<typeof calculateSIP> | null>(null);
     const [chartData, setChartData] = useState<any[]>([]);
     const [showFormula, setShowFormula] = useState(false);
     const [isPDFLoading, setIsPDFLoading] = useState(false);
@@ -265,7 +265,7 @@ export default function SIPCalculator() {
                                             >
                                                 {CHART_COLORS.map((color, i) => <Cell key={i} fill={color} />)}
                                             </Pie>
-                                            <Tooltip formatter={(v: number) => formatCurrency(v)} />
+                                            <Tooltip formatter={(v: any) => formatCurrency(v)} />
                                         </PieChart>
                                         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                                             <span className="text-[10px] text-gray-400 uppercase font-medium">Growth</span>

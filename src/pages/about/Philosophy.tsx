@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Target, TrendingUp, Shield, Users, ArrowRight, Zap, Award, BarChartHorizontal } from 'lucide-react';
+import { Target, TrendingUp, Shield, Users, Zap, Award, BarChartHorizontal } from 'lucide-react';
 import PageHeader from '../../components/layout/PageHeader';
 
 const PRINCIPLES = [

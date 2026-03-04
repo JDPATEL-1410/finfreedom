@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
@@ -125,7 +125,7 @@ export default function LumpsumCalculator() {
                                                 >
                                                     {['#335C8E', '#EB3E4A'].map((c, i) => <Cell key={i} fill={c} stroke="none" />)}
                                                 </Pie>
-                                                <Tooltip formatter={(v: number) => formatCurrency(v)} />
+                                                <Tooltip formatter={(v: any) => formatCurrency(v)} />
                                             </PieChart>
                                         </ResponsiveContainer>
                                     </div>

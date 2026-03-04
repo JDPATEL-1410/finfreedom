@@ -16,7 +16,6 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recha
 import PageHeader from '../components/layout/PageHeader';
 import { getImage } from '../data/images';
 import { generatePDFReport } from '../utils/pdfGenerator';
-import { formatCurrencyFull } from '../utils/calculators';
 
 interface Question {
     id: number;
@@ -132,6 +131,8 @@ const PROFILES = [
 const img = getImage('services/financial-planning');
 
 export default function RiskProfile() {
+    const [_searchParams] = useState(null); // Placeholder for useSearchParams, assuming it's not used
+    const [_result] = useState(null); // Placeholder for calculateSIP, assuming it's not used
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState<number[]>([]);
     const [isFinished, setIsFinished] = useState(false);
@@ -309,7 +310,7 @@ export default function RiskProfile() {
                                                         <Cell key={`cell-${index}`} fill={entry.color} />
                                                     ))}
                                                 </Pie>
-                                                <Tooltip />
+                                                <Tooltip formatter={(value: number, name: string) => [`${value}%`, name]} />
                                                 <Legend verticalAlign="bottom" height={36} />
                                             </PieChart>
                                         </ResponsiveContainer>
