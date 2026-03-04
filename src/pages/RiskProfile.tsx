@@ -310,7 +310,7 @@ export default function RiskProfile() {
                                                         <Cell key={`cell-${index}`} fill={entry.color} />
                                                     ))}
                                                 </Pie>
-                                                <Tooltip formatter={(value: number, name: string) => [`${value}%`, name]} />
+                                                <Tooltip formatter={(value: any, name: any) => [`${value}%`, name]} />
                                                 <Legend verticalAlign="bottom" height={36} />
                                             </PieChart>
                                         </ResponsiveContainer>
