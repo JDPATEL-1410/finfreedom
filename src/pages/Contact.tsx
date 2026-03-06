@@ -287,7 +287,7 @@ export default function Contact() {
             <section className="h-[450px] w-full relative">
                 <iframe
                     title="FinFreedom33 Office Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.851082697855!2d72.518683!3d23.030132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84992569766b%3A0xe5452d3d9205562d!2sShivalik%20High-Street!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.9554200356188!2d72.53232847437252!3d23.171827110743664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2960e7266de5%3A0x6513e96ce5fa6852!2sFinFreedom33%20LLP!5e0!3m2!1sen!2sin!4v1772795456598!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
