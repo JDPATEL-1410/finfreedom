@@ -125,9 +125,9 @@ export default function Contact() {
                                         <div>
                                             <p className="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Visit Us</p>
                                             <p className="text-navy font-semibold leading-relaxed">
-                                                404, Shivalik High Street, <br />
-                                                Near Mansi Circle, Satellite, <br />
-                                                Ahmedabad - 380015, Gujarat
+                                                A-33, North Park Villa, <br />
+                                                Beside Belvedere Golf Club, Shantigram Township, <br />
+                                                Near Vaishnodevi Circle, Ahmedabad - 382421
                                             </p>
                                         </div>
                                     </div>

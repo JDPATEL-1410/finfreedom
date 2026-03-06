@@ -221,7 +221,7 @@ export default function Home() {
                     "url": "https://finfreedom33.com",
                     "telephone": "+91-9327002340",
                     "email": "nitin@finfreedom33.com",
-                    "address": { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN" },
+                    "address": { "@type": "PostalAddress", "streetAddress": "A-33, North Park Villa, Shantigram Township", "addressLocality": "Ahmedabad", "postalCode": "382421", "addressRegion": "Gujarat", "addressCountry": "IN" },
                 })}</script>
             </Helmet>
 

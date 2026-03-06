@@ -25,11 +25,11 @@ const FAQS = [
             },
             {
                 q: 'Is FinFreedom33 a registered entity?',
-                a: 'Yes, FinFreedom33 LLP is an AMFI Registered Mutual Fund Distributor (ARN Number: [ARN No]). Our founder, Nitin J., is a veteran in the industry with over 25 years of experience.'
+                a: 'Yes, FinFreedom33 LLP is an AMFI Registered Mutual Fund Distributor (ARN Number: 144870). Our founder, Nitin J., is a veteran in the industry with over 25 years of experience.'
             },
             {
                 q: 'Where are you located?',
-                a: 'Our head office is in Ahmedabad, Gujarat, located at Shivalik High Street, Satellite. However, we serve clients across India and NRI clients globally through our digital platform.'
+                a: 'Our head office is in Ahmedabad, Gujarat, located at Shantigram Township, Near Vaishnodevi Circle, S.G. Highway. However, we serve clients across India and NRI clients globally through our digital platform.'
             }
         ]
     },

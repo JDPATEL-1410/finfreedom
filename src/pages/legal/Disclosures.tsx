@@ -21,7 +21,7 @@ export default function Disclosures() {
                 <div className="container-custom max-w-4xl">
                     <div className="prose prose-navy max-w-none text-gray-600">
                         <h2 className="text-navy">1. AMFI Registration</h2>
-                        <p>FinFreedom33 LLP is an AMFI-registered Mutual Fund Distributor with ARN Number: [ARN No]. We earn commissions from Asset Management Companies (AMCs) for the mutual fund schemes we facilitate.</p>
+                        <p>FinFreedom33 LLP is an AMFI-registered Mutual Fund Distributor with ARN Number: 144870. We earn commissions from Asset Management Companies (AMCs) for the mutual fund schemes we facilitate.</p>
 
                         <h2 className="text-navy">2. Mutual Fund Risk Disclosure</h2>
                         <p className="font-bold text-red-600">Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.</p>

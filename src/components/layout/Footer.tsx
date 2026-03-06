@@ -89,7 +89,7 @@ export default function Footer() {
                                 </a>
                                 <div className="flex items-start gap-2.5 text-blue-200 text-sm">
                                     <MapPin size={14} className="mt-0.5 shrink-0 text-secondary" />
-                                    <span>Ahmedabad, Gujarat, India</span>
+                                    <span>Shantigram, Ahmedabad, India</span>
                                 </div>
                             </div>
                             {/* Socials */}
@@ -196,7 +196,7 @@ export default function Footer() {
             <div className="border-t border-white/10 py-5">
                 <div className="container-custom flex flex-col md:flex-row items-center justify-between gap-3">
                     <p className="text-blue-300 text-xs text-center md:text-left">
-                        © {new Date().getFullYear()} FinFreedom33 LLP. All rights reserved. | AMFI Registered Mutual Fund Distributor | ARN No.: [ARN Number]
+                        © {new Date().getFullYear()} FinFreedom33 LLP. All rights reserved. | AMFI Registered Mutual Fund Distributor | ARN No.: 144870
                     </p>
                     <p className="text-blue-300/60 text-xs text-center">
                         Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully.
