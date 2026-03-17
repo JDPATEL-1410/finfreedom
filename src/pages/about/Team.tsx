@@ -106,9 +106,9 @@ const TEAM_CATEGORIES: TeamCategory[] = [
 
 const categoryColors: Record<string, { bg: string; badge: string; dot: string }> = {
     'Founders & Directors': { bg: 'from-blue-600 to-indigo-700', badge: 'bg-blue-50 text-blue-700', dot: 'bg-blue-500' },
-    'Sr. Executives':       { bg: 'from-violet-600 to-purple-700', badge: 'bg-violet-50 text-violet-700', dot: 'bg-violet-500' },
-    'Relationship Managers':{ bg: 'from-teal-600 to-emerald-700', badge: 'bg-teal-50 text-teal-700', dot: 'bg-teal-500' },
-    'Operations & Accounting':{ bg: 'from-amber-500 to-orange-600', badge: 'bg-amber-50 text-amber-700', dot: 'bg-amber-500' },
+    'Sr. Executives': { bg: 'from-violet-600 to-purple-700', badge: 'bg-violet-50 text-violet-700', dot: 'bg-violet-500' },
+    'Relationship Managers': { bg: 'from-teal-600 to-emerald-700', badge: 'bg-teal-50 text-teal-700', dot: 'bg-teal-500' },
+    'Operations & Accounting': { bg: 'from-amber-500 to-orange-600', badge: 'bg-amber-50 text-amber-700', dot: 'bg-amber-500' },
 };
 
 export default function Team() {
@@ -128,24 +128,32 @@ export default function Team() {
             />
 
             {/* Intro strip */}
-            <div className="bg-surface border-b border-gray-100 py-10">
+            <div className="bg-[#fcfdff] border-b border-gray-100 py-16">
                 <div className="container-custom">
-                    <div className="flex flex-wrap gap-8 justify-center">
+                    <div className="text-center mb-12">
+                        <p className="text-secondary text-[10px] font-bold uppercase tracking-[0.3em] mb-3">Our Impact</p>
+                        <h2 className="text-navy text-3xl font-display font-bold">Trust Built Over Decades</h2>
+                    </div>
+                    <div className="flex flex-wrap gap-6 justify-center">
                         {[
-                            { icon: Users, value: '20+', label: 'Team Members' },
-                            { icon: Award, value: '25+', label: 'Years Experience' },
-                            { icon: CheckCircle2, value: '8000+', label: 'Families Served' },
-                            { icon: Briefcase, value: '4', label: 'Expert Divisions' },
-                        ].map(({ icon: Icon, value, label }) => (
-                            <div key={label} className="flex items-center gap-4 bg-white rounded-2xl shadow-sm border border-gray-100 px-7 py-5">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shrink-0">
-                                    <Icon size={22} className="text-white" />
+                            { icon: Users, value: '20+', label: 'Team Members', color: 'from-blue-500 to-indigo-600' },
+                            { icon: Award, value: '25+', label: 'Years Expertise', color: 'from-amber-400 to-orange-500' },
+                            { icon: CheckCircle2, value: '8000+', label: 'Families Served', color: 'from-teal-400 to-emerald-600' },
+                            { icon: Briefcase, value: '4', label: 'Expert Divisions', color: 'from-violet-500 to-purple-600' },
+                        ].map(({ icon: Icon, value, label, color }) => (
+                            <motion.div
+                                key={label}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                className="w-56 bg-white rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 p-8 text-center group"
+                            >
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mx-auto mb-5 shadow-lg group-hover:rotate-6 transition-transform`}>
+                                    <Icon size={26} className="text-white" />
                                 </div>
-                                <div>
-                                    <p className="text-2xl font-display font-bold text-navy leading-none">{value}</p>
-                                    <p className="text-gray-400 text-sm mt-0.5">{label}</p>
-                                </div>
-                            </div>
+                                <p className="text-3xl font-display font-bold text-navy leading-none mb-2">{value}</p>
+                                <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider">{label}</p>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
@@ -247,11 +255,10 @@ export default function Team() {
                                                         {/* Name overlay */}
                                                         <div className="absolute bottom-0 left-0 right-0 p-4">
                                                             <h4 className="text-white font-display font-bold text-base leading-tight">{member.name}</h4>
-                                                            <span className={`text-[10px] font-bold uppercase tracking-widest mt-1 block opacity-90 ${
-                                                                category.title === 'Relationship Managers' ? 'text-teal-300' :
-                                                                category.title === 'Operations & Accounting' ? 'text-amber-300' :
-                                                                'text-blue-200'
-                                                            }`}>
+                                                            <span className={`text-[10px] font-bold uppercase tracking-widest mt-1 block opacity-90 ${category.title === 'Relationship Managers' ? 'text-teal-300' :
+                                                                    category.title === 'Operations & Accounting' ? 'text-amber-300' :
+                                                                        'text-blue-200'
+                                                                }`}>
                                                                 {member.role}
                                                             </span>
                                                         </div>
@@ -271,6 +278,39 @@ export default function Team() {
                         );
                     })}
                 </div>
+
+                {/* Join Us section */}
+                <div className="container-custom mt-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        className="bg-navy rounded-[3rem] p-12 md:p-16 relative overflow-hidden text-center max-w-5xl mx-auto border border-white/5"
+                    >
+                        {/* Decorative background Elements */}
+                        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4" />
+
+                        <div className="relative z-10 text-white">
+                            <span className="badge bg-secondary/20 text-secondary border border-secondary/30 text-[10px] uppercase tracking-[0.2em] px-4 py-1.5 mb-6 inline-block">
+                                Careers
+                            </span>
+                            <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">Want to Join our Mission?</h3>
+                            <p className="text-blue-200 text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                                We're always looking for passionate financial experts and operations professionals to join our growing team. If you're dedicated to helping clients build wealth, we want to hear from you.
+                            </p>
+                            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                                <a href="mailto:careers@finfreedom33.com" className="btn-secondary btn-lg shadow-xl shadow-secondary/10 w-full sm:w-auto">
+                                    Send Your Resume
+                                </a>
+                                <a href="/contact" className="text-white font-bold text-sm hover:text-secondary transition-colors underline underline-offset-8 decoration-white/20 hover:decoration-secondary">
+                                    Contact HR Department
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
             </section>
 
             {/* CTA */}
@@ -281,7 +321,7 @@ export default function Team() {
                         <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2" />
                         <div className="relative z-10 text-white">
                             <p className="text-secondary text-xs font-bold uppercase tracking-[0.2em] mb-4">Get in Touch</p>
-                            <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">Ready to Grow Your Wealth?</h2>
+                            <h2 className="font-display font-bold text-3xl md:text-4xl mb-6 text-white">Ready to Grow Your Wealth?</h2>
                             <p className="text-blue-200 mb-10 max-w-lg mx-auto leading-relaxed">Our experts are here to guide you through every financial milestone. Book a free consultation today.</p>
                             <div className="flex flex-wrap justify-center gap-4">
                                 <a href="/contact" className="btn-secondary btn-lg">Schedule a Meeting</a>

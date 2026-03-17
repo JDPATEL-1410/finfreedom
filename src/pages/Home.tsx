@@ -11,12 +11,6 @@ import YouTubeSection from '../components/home/YouTubeSection';
 import nitinPatel from '../assets/team/nitin patel.png';
 import anjaliPatel from '../assets/team/anjali patel.png';
 import anishiPatel from '../assets/team/anishi patel.png';
-import adityaBhavsar from '../assets/team/aditya bhavshar.png';
-import priyankaMakwana from '../assets/team/priyanka makwana.png';
-import raviVanecha from '../assets/team/ravi vanecha.png';
-import bhavikDave from '../assets/team/bhavik dave.png';
-import niravVora from '../assets/team/nirav vora.png';
-
 
 const HERO_SLIDES = [
     {
@@ -430,70 +424,91 @@ export default function Home() {
             </section>
 
             {/* Team Highlight */}
-            <section className="section bg-surface overflow-hidden">
+            <section className="section bg-[#f8faff] overflow-hidden">
                 <div className="container-custom">
-                    <div className="flex flex-col md:flex-row items-end justify-between mb-14 gap-6">
-                        <div className="max-w-2xl">
-                            <p className="section-label">Our Experts</p>
-                            <h2 className="text-navy mb-4">The Minds Behind Your Wealth</h2>
-                            <div className="divider mb-4" />
-                            <p className="text-gray-500">
-                                Meet our dedicated team of 20+ professionals committed to shielding and growing your hard-earned money — from seasoned advisors to relationship experts.
-                            </p>
-                        </div>
-                        <Link to="/about/team" className="btn-outline btn-sm group shrink-0">
-                            Full Team
-                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    </div>
+                    {/* Header */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                        className="text-center max-w-2xl mx-auto mb-16"
+                    >
+                        <p className="section-label">Our Leadership</p>
+                        <h2 className="text-navy mb-4">The Minds Behind Your Wealth</h2>
+                        <div className="divider mx-auto mb-4" />
+                        <p className="text-gray-500 leading-relaxed">
+                            Meet our founding team — seasoned professionals with a shared mission to help families build lasting wealth.
+                        </p>
+                    </motion.div>
 
-                    {/* Founders Row */}
-                    <div className="mb-3">
-                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5">Founders & Directors</p>
-                        <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 sm:gap-6 mb-10">
-                            {[
-                                { name: 'Nitin Patel', role: 'Founder & Director', img: nitinPatel },
-                                { name: 'Anjali Patel', role: 'Founder & Director', img: anjaliPatel },
-                                { name: 'Anishi Patel', role: 'Director', img: anishiPatel },
-                            ].map((member, i) => (
-                                <motion.div key={member.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }} className="group">
-                                    <div className="relative rounded-2xl overflow-hidden shadow-premium hover:shadow-xl hover:-translate-y-1 transition-all duration-400">
-                                        <div className="aspect-[3/4] overflow-hidden">
-                                            <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                                        </div>
-                                        <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-transparent to-transparent" />
-                                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                                            <h4 className="text-white font-bold text-sm leading-tight">{member.name}</h4>
-                                            <p className="text-blue-200 text-[10px] uppercase tracking-wider font-bold mt-0.5">{member.role}</p>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Team Row - mixed tiers */}
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-5">Executives & Relationship Managers</p>
-                    <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+                    {/* Founders Grid */}
+                    <div className="flex flex-wrap justify-center gap-6 lg:gap-10 mb-16">
                         {[
-                            { name: 'Aditya Bhavsar', role: 'Sr. Executive', img: adityaBhavsar },
-                            { name: 'Priyanka Makwana', role: 'Relationship Manager', img: priyankaMakwana },
-                            { name: 'Ravi Vanecha', role: 'Relationship Manager', img: raviVanecha },
-                            { name: 'Bhavik Dave', role: 'Relationship Manager', img: bhavikDave },
-                            { name: 'Nirav Vora', role: 'Back Office', img: niravVora },
+                            { name: 'Nitin Patel', role: 'Founder & Director', qual: 'B.E., DBM, CFP®', img: nitinPatel },
+                            { name: 'Anjali Patel', role: 'Founder & Director', qual: 'Founder Member', img: anjaliPatel },
+                            { name: 'Anishi Patel', role: 'Director', qual: 'BBA', img: anishiPatel },
                         ].map((member, i) => (
-                            <motion.div key={member.name} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.07 }} viewport={{ once: true }} className="group">
-                                <div className="relative rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-                                    <div className="aspect-square overflow-hidden">
-                                        <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <motion.div
+                                key={member.name}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: i * 0.1 }}
+                                viewport={{ once: true }}
+                                className="group w-full max-w-[280px] sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-2rem)]"
+                            >
+                                <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-700 border border-gray-100 h-full flex flex-col">
+                                    {/* Photo Container */}
+                                    <div className="relative aspect-[4/5] overflow-hidden">
+                                        <img
+                                            src={member.img}
+                                            alt={member.name}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                                        />
+                                        {/* Premium overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700" />
+                                        
+                                        {/* Details revealed on hover */}
+                                        <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-8 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
+                                            <p className="text-blue-200 text-[10px] uppercase tracking-[0.2em] font-bold mb-1">Expertise</p>
+                                            <p className="text-white text-xs leading-relaxed line-clamp-2">
+                                                Leading FinFreedom with vision and commitment to family wealth creation.
+                                            </p>
+                                        </div>
+
+                                        {/* Status Tag */}
+                                        {/* Removed as per instruction */}
                                     </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-2">
-                                        <p className="text-white font-bold text-[10px] leading-tight">{member.name}</p>
+
+                                    {/* Info */}
+                                    <div className="p-7 text-center">
+                                        <h4 className="text-navy font-display font-bold text-lg mb-1 group-hover:text-primary transition-colors">{member.name}</h4>
+                                        <p className="text-primary text-[10px] uppercase tracking-[0.2em] font-bold">{member.role}</p>
+                                        <p className="text-gray-400 text-[10px] mt-1 italic font-medium">{member.qual}</p>
                                     </div>
                                 </div>
                             </motion.div>
                         ))}
+                    </div>
+
+                    {/* Stat bar + CTA */}
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-5 bg-white rounded-3xl border border-gray-100 shadow-sm px-8 py-6">
+                        <div className="flex flex-wrap gap-8 justify-center">
+                            {[
+                                { val: '20+', label: 'Team Members' },
+                                { val: '25+', label: 'Years Expertise' },
+                                { val: '4', label: 'Expert Divisions' },
+                            ].map(({ val, label }) => (
+                                <div key={label} className="text-center">
+                                    <p className="text-2xl font-display font-bold text-navy">{val}</p>
+                                    <p className="text-gray-400 text-xs mt-0.5">{label}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <Link to="/about/team" className="btn-primary btn-sm shrink-0 group">
+                            Meet the Full Team
+                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -644,102 +659,162 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Blog Teaser - ET RSS */}
+            {/* Blog Section - ET RSS Live */}
             <section className="section bg-white" aria-label="Latest Insights">
                 <div className="container-custom">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+                    {/* Header */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                        className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12"
+                    >
                         <div>
-                            <p className="section-label">Market Insights</p>
+                            <p className="section-label">Daily Market Insights</p>
                             <h2 className="text-navy">Fresh from Economic Times</h2>
-                            <div className="divider mt-4" />
+                            <div className="flex items-center gap-2 mt-3">
+                                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                <span className="text-xs text-green-600 font-bold uppercase tracking-wider">Live — Updates Daily</span>
+                            </div>
                         </div>
                         <Link to="/blog" className="btn-primary btn-sm group shrink-0">
                             All Articles
                             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
-                    </div>
+                    </motion.div>
 
                     {livePosts.length > 0 ? (
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                            {/* Hero article */}
-                            <a
-                                href={livePosts[0].link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="lg:col-span-7 group block"
-                            >
-                                <div className="relative rounded-3xl overflow-hidden aspect-[16/9] shadow-premium">
-                                    <img
-                                        src={livePosts[0].imageUrl || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80'}
-                                        alt={livePosts[0].title}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
-                                    <div className="absolute inset-0 flex flex-col justify-end p-8">
-                                        <span className="badge bg-secondary text-white text-[10px] mb-4 w-fit">Economic Times · Live</span>
-                                        <h3 className="text-white font-display font-bold text-xl md:text-2xl leading-snug mb-3 group-hover:text-secondary transition-colors">
-                                            {livePosts[0].title}
-                                        </h3>
-                                        <p className="text-blue-200 text-xs">{new Date(livePosts[0].pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                        <>
+                            {/* Layout: 1 hero left + 3 side right */}
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
+                                {/* Hero */}
+                                <motion.a
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                    viewport={{ once: true }}
+                                    href={livePosts[0].link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="lg:col-span-7 group block"
+                                >
+                                    <div className="relative rounded-3xl overflow-hidden aspect-[16/9] shadow-premium">
+                                        <img
+                                            src={livePosts[0].imageUrl || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80'}
+                                            alt={livePosts[0].title}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                            onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80'; }}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-navy/92 via-navy/30 to-transparent" />
+                                        <div className="absolute inset-0 flex flex-col justify-end p-7 md:p-10">
+                                            <div className="flex items-center gap-2 mb-4">
+                                                <span className="bg-secondary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Economic Times</span>
+                                                <span className="text-blue-200 text-[10px]">{new Date(livePosts[0].pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                                            </div>
+                                            <h3 className="text-white font-display font-bold text-xl md:text-2xl leading-snug mb-3 group-hover:text-secondary transition-colors line-clamp-3">
+                                                {livePosts[0].title}
+                                            </h3>
+                                            <div className="flex items-center gap-2 text-secondary font-bold text-xs uppercase tracking-wider group-hover:gap-3 transition-all">
+                                                <span>Read Full Article</span>
+                                                <ArrowRight size={12} />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </motion.a>
 
-                            {/* Side articles */}
-                            <div className="lg:col-span-5 flex flex-col gap-4">
-                                {livePosts.slice(1, 4).map((post) => (
+                                {/* Side articles */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                    viewport={{ once: true }}
+                                    className="lg:col-span-5 flex flex-col gap-4"
+                                >
+                                    {livePosts.slice(1, 4).map((post) => (
+                                        <a
+                                            key={post.id}
+                                            href={post.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="group flex gap-4 bg-surface rounded-2xl p-3 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-gray-100"
+                                        >
+                                            <div className="w-20 h-[72px] rounded-xl overflow-hidden shrink-0 shadow-sm">
+                                                <img
+                                                    src={post.imageUrl || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80'}
+                                                    alt={post.title}
+                                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                                    onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80'; }}
+                                                />
+                                            </div>
+                                            <div className="flex flex-col justify-center min-w-0">
+                                                <span className="text-[10px] font-bold text-primary uppercase tracking-wider mb-1">ET · Mutual Fund</span>
+                                                <h4 className="text-navy font-semibold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h4>
+                                                <p className="text-gray-400 text-[11px] mt-1.5">
+                                                    {new Date(post.pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                                                </p>
+                                            </div>
+                                        </a>
+                                    ))}
+                                </motion.div>
+                            </div>
+
+                            {/* Bottom 3-card row */}
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                {livePosts.slice(4, 7).map((post) => (
                                     <a
                                         key={post.id}
                                         href={post.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group flex gap-4 bg-surface rounded-2xl p-3 hover:shadow-md transition-all duration-300 border border-gray-100"
+                                        className="group block rounded-2xl overflow-hidden bg-surface border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-400"
                                     >
-                                        <div className="w-24 h-20 rounded-xl overflow-hidden shrink-0">
+                                        <div className="aspect-[16/9] overflow-hidden">
                                             <img
-                                                src={post.imageUrl || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80'}
+                                                src={post.imageUrl || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80'}
                                                 alt={post.title}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80'; }}
                                             />
                                         </div>
-                                        <div className="flex flex-col justify-center min-w-0">
-                                            <span className="text-[10px] font-bold text-primary uppercase tracking-wider mb-1">ET Mutual Fund</span>
-                                            <h4 className="text-navy font-semibold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h4>
-                                            <p className="text-gray-400 text-[11px] mt-1">{new Date(post.pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}</p>
+                                        <div className="p-4">
+                                            <span className="text-[10px] font-bold text-primary uppercase tracking-wider">ET Mutual Fund</span>
+                                            <h4 className="text-navy font-semibold text-sm leading-snug mt-1.5 mb-2 line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h4>
+                                            <p className="text-gray-400 text-[11px]">{new Date(post.pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}</p>
                                         </div>
                                     </a>
                                 ))}
                             </div>
-                        </div>
+                        </>
                     ) : (
-                        /* Skeleton / Fallback cards */
+                        /* Fallback static cards when API is loading */
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {[
-                                { title: 'Power of Compounding: Why Starting Early Matters Most', category: 'Investing Basics', date: 'February 2026', img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80' },
-                                { title: 'ELSS vs PPF: Which is the Better Tax-Saving Instrument in 2026?', category: 'Tax Planning', date: 'February 2026', img: 'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=600&q=80' },
-                                { title: 'How to Build an Emergency Fund: A Step-by-Step Guide', category: 'Financial Planning', date: 'January 2026', img: 'https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80' },
+                                { title: 'Power of Compounding: Why Starting Early Matters Most', category: 'Investing Basics', date: 'March 2026', img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80' },
+                                { title: 'ELSS vs PPF: Which is the Better Tax-Saving Instrument?', category: 'Tax Planning', date: 'March 2026', img: 'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=600&q=80' },
+                                { title: 'How to Build an Emergency Fund: Step-by-Step Guide', category: 'Financial Planning', date: 'March 2026', img: 'https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80' },
                             ].map((article) => (
-                                <Link key={article.title} to="/blog" className="card-hover group block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-400">
+                                <Link key={article.title} to="/blog" className="group block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-400">
                                     <div className="aspect-[16/9] overflow-hidden">
                                         <img src={article.img} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                                     </div>
-                                    <div className="card-body">
-                                        <span className="badge-primary text-xs mb-3">{article.category}</span>
-                                        <h3 className="text-navy font-semibold text-base leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">{article.title}</h3>
+                                    <div className="p-5">
+                                        <span className="text-[10px] font-bold text-primary uppercase tracking-wider">{article.category}</span>
+                                        <h3 className="text-navy font-semibold text-base leading-snug mt-1.5 mb-2 group-hover:text-primary transition-colors line-clamp-2">{article.title}</h3>
                                         <p className="text-gray-400 text-xs">{article.date}</p>
                                     </div>
                                 </Link>
                             ))}
                         </div>
                     )}
-                    
-                    {/* ET branding strip */}
-                    <div className="mt-8 flex items-center justify-center gap-3 text-gray-400">
-                        <div className="h-px bg-gray-200 flex-1 max-w-24" />
-                        <span className="text-xs">Powered by</span>
-                        <span className="font-bold text-sm text-gray-600">Economic Times RSS</span>
-                        <span className="text-xs text-green-500 font-bold">● Live</span>
-                        <div className="h-px bg-gray-200 flex-1 max-w-24" />
+
+                    {/* Powered by badge */}
+                    <div className="mt-10 flex items-center justify-center gap-3">
+                        <div className="h-px bg-gray-200 w-16" />
+                        <span className="text-xs text-gray-400">Powered by</span>
+                        <span className="text-xs font-bold text-gray-600">Economic Times RSS Feed</span>
+                        <span className="flex items-center gap-1 text-xs text-green-500 font-bold"><span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />Live</span>
+                        <div className="h-px bg-gray-200 w-16" />
                     </div>
                 </div>
             </section>
