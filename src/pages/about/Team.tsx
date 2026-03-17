@@ -224,7 +224,7 @@ export default function Team() {
                                     </div>
                                 ) : (
                                     // — Others: compact cards grid
-                                    <div className={`grid grid-cols-2 sm:grid-cols-3 ${category.members.length >= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} gap-6`}>
+                                    <div className={`flex flex-wrap justify-center gap-6`}>
                                         {category.members.map((member, i) => (
                                             <motion.div
                                                 key={member.name}
@@ -232,7 +232,7 @@ export default function Team() {
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.5, delay: i * 0.05 }}
                                                 viewport={{ once: true }}
-                                                className="group"
+                                                className="group w-40 sm:w-44 lg:w-48 shrink-0"
                                             >
                                                 <div className="relative bg-white rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 overflow-hidden">
                                                     {/* Image */}

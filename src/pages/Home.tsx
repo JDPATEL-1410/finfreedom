@@ -12,6 +12,10 @@ import nitinPatel from '../assets/team/nitin patel.png';
 import anjaliPatel from '../assets/team/anjali patel.png';
 import anishiPatel from '../assets/team/anishi patel.png';
 import adityaBhavsar from '../assets/team/aditya bhavshar.png';
+import priyankaMakwana from '../assets/team/priyanka makwana.png';
+import raviVanecha from '../assets/team/ravi vanecha.png';
+import bhavikDave from '../assets/team/bhavik dave.png';
+import niravVora from '../assets/team/nirav vora.png';
 
 
 const HERO_SLIDES = [
@@ -428,44 +432,64 @@ export default function Home() {
             {/* Team Highlight */}
             <section className="section bg-surface overflow-hidden">
                 <div className="container-custom">
-                    <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+                    <div className="flex flex-col md:flex-row items-end justify-between mb-14 gap-6">
                         <div className="max-w-2xl">
                             <p className="section-label">Our Experts</p>
                             <h2 className="text-navy mb-4">The Minds Behind Your Wealth</h2>
                             <div className="divider mb-4" />
                             <p className="text-gray-500">
-                                Meet our dedicated team of professionals committed to shielding and growing your hard-earned money. From seasoned advisors to operation experts, we are here for you.
+                                Meet our dedicated team of 20+ professionals committed to shielding and growing your hard-earned money — from seasoned advisors to relationship experts.
                             </p>
                         </div>
                         <Link to="/about/team" className="btn-outline btn-sm group shrink-0">
-                            Meet the Full Team
+                            Full Team
                             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {[
-                            { name: 'Nitin Patel', role: 'Founder & Director', img: nitinPatel },
-                            { name: 'Anjali Patel', role: 'Founder & Director', img: anjaliPatel },
-                            { name: 'Anishi Patel', role: 'Director', img: anishiPatel },
-                            { name: 'Aditya Bhavsar', role: 'Sr. Executive', img: adityaBhavsar },
-                        ].map((member, i) => (
-                            <motion.div
-                                key={member.name}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: i * 0.1 }}
-                                viewport={{ once: true }}
-                                className="group"
-                            >
-                                <div className="relative rounded-3xl overflow-hidden shadow-premium hover:shadow-2xl hover:-translate-y-1 transition-all duration-500">
-                                    <div className="aspect-[3/4] overflow-hidden">
-                                        <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    {/* Founders Row */}
+                    <div className="mb-3">
+                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5">Founders & Directors</p>
+                        <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 sm:gap-6 mb-10">
+                            {[
+                                { name: 'Nitin Patel', role: 'Founder & Director', img: nitinPatel },
+                                { name: 'Anjali Patel', role: 'Founder & Director', img: anjaliPatel },
+                                { name: 'Anishi Patel', role: 'Director', img: anishiPatel },
+                            ].map((member, i) => (
+                                <motion.div key={member.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }} className="group">
+                                    <div className="relative rounded-2xl overflow-hidden shadow-premium hover:shadow-xl hover:-translate-y-1 transition-all duration-400">
+                                        <div className="aspect-[3/4] overflow-hidden">
+                                            <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                                        </div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-transparent to-transparent" />
+                                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                                            <h4 className="text-white font-bold text-sm leading-tight">{member.name}</h4>
+                                            <p className="text-blue-200 text-[10px] uppercase tracking-wider font-bold mt-0.5">{member.role}</p>
+                                        </div>
                                     </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                                        <h4 className="text-white font-bold text-base leading-tight">{member.name}</h4>
-                                        <p className="text-blue-200 text-[11px] uppercase tracking-wider font-bold mt-1">{member.role}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Team Row - mixed tiers */}
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-5">Executives & Relationship Managers</p>
+                    <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+                        {[
+                            { name: 'Aditya Bhavsar', role: 'Sr. Executive', img: adityaBhavsar },
+                            { name: 'Priyanka Makwana', role: 'Relationship Manager', img: priyankaMakwana },
+                            { name: 'Ravi Vanecha', role: 'Relationship Manager', img: raviVanecha },
+                            { name: 'Bhavik Dave', role: 'Relationship Manager', img: bhavikDave },
+                            { name: 'Nirav Vora', role: 'Back Office', img: niravVora },
+                        ].map((member, i) => (
+                            <motion.div key={member.name} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.07 }} viewport={{ once: true }} className="group">
+                                <div className="relative rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                                    <div className="aspect-square overflow-hidden">
+                                        <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                    </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
+                                    <div className="absolute bottom-0 left-0 right-0 p-2">
+                                        <p className="text-white font-bold text-[10px] leading-tight">{member.name}</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -620,104 +644,145 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Blog Teaser */}
+            {/* Blog Teaser - ET RSS */}
             <section className="section bg-white" aria-label="Latest Insights">
                 <div className="container-custom">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
                         <div>
                             <p className="section-label">Market Insights</p>
-                            <h2 className="text-navy">Latest from the Blog</h2>
+                            <h2 className="text-navy">Fresh from Economic Times</h2>
+                            <div className="divider mt-4" />
                         </div>
-                        <Link to="/blog" className="btn-outline btn-sm shrink-0">
-                            View All Articles
-                            <ArrowRight size={14} />
+                        <Link to="/blog" className="btn-primary btn-sm group shrink-0">
+                            All Articles
+                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {livePosts.length > 0 ? (
-                            livePosts.map((post) => (
-                                <a key={post.id} href={post.link} target="_blank" rel="noopener noreferrer" className="card-hover group">
-                                    <div className="aspect-[16/9] overflow-hidden bg-gray-100">
-                                        <img
-                                            src={post.imageUrl || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80'}
-                                            alt={post.title}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                        />
-                                    </div>
-                                    <div className="card-body">
-                                        <span className="badge-primary text-xs mb-3">Economic Times</span>
-                                        <h3 className="text-navy font-semibold text-base leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                                            {post.title}
+
+                    {livePosts.length > 0 ? (
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                            {/* Hero article */}
+                            <a
+                                href={livePosts[0].link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="lg:col-span-7 group block"
+                            >
+                                <div className="relative rounded-3xl overflow-hidden aspect-[16/9] shadow-premium">
+                                    <img
+                                        src={livePosts[0].imageUrl || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80'}
+                                        alt={livePosts[0].title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
+                                    <div className="absolute inset-0 flex flex-col justify-end p-8">
+                                        <span className="badge bg-secondary text-white text-[10px] mb-4 w-fit">Economic Times · Live</span>
+                                        <h3 className="text-white font-display font-bold text-xl md:text-2xl leading-snug mb-3 group-hover:text-secondary transition-colors">
+                                            {livePosts[0].title}
                                         </h3>
-                                        <p className="text-gray-400 text-xs">{new Date(post.pubDate).toLocaleDateString()}</p>
+                                        <p className="text-blue-200 text-xs">{new Date(livePosts[0].pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                                     </div>
-                                </a>
-                            ))
-                        ) : (
-                            [
-                                {
-                                    title: 'Power of Compounding: Why Starting Early Matters Most',
-                                    category: 'Investing Basics',
-                                    date: 'February 2026',
-                                    img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80',
-                                },
-                                {
-                                    title: 'ELSS vs PPF: Which is the Better Tax-Saving Instrument in 2026?',
-                                    category: 'Tax Planning',
-                                    date: 'February 2026',
-                                    img: 'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=600&q=80',
-                                },
-                                {
-                                    title: 'How to Build an Emergency Fund: A Step-by-Step Guide',
-                                    category: 'Financial Planning',
-                                    date: 'January 2026',
-                                    img: 'https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80',
-                                },
+                                </div>
+                            </a>
+
+                            {/* Side articles */}
+                            <div className="lg:col-span-5 flex flex-col gap-4">
+                                {livePosts.slice(1, 4).map((post) => (
+                                    <a
+                                        key={post.id}
+                                        href={post.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group flex gap-4 bg-surface rounded-2xl p-3 hover:shadow-md transition-all duration-300 border border-gray-100"
+                                    >
+                                        <div className="w-24 h-20 rounded-xl overflow-hidden shrink-0">
+                                            <img
+                                                src={post.imageUrl || 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80'}
+                                                alt={post.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                        </div>
+                                        <div className="flex flex-col justify-center min-w-0">
+                                            <span className="text-[10px] font-bold text-primary uppercase tracking-wider mb-1">ET Mutual Fund</span>
+                                            <h4 className="text-navy font-semibold text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h4>
+                                            <p className="text-gray-400 text-[11px] mt-1">{new Date(post.pubDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}</p>
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    ) : (
+                        /* Skeleton / Fallback cards */
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {[
+                                { title: 'Power of Compounding: Why Starting Early Matters Most', category: 'Investing Basics', date: 'February 2026', img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80' },
+                                { title: 'ELSS vs PPF: Which is the Better Tax-Saving Instrument in 2026?', category: 'Tax Planning', date: 'February 2026', img: 'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=600&q=80' },
+                                { title: 'How to Build an Emergency Fund: A Step-by-Step Guide', category: 'Financial Planning', date: 'January 2026', img: 'https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=600&q=80' },
                             ].map((article) => (
-                                <Link key={article.title} to="/blog" className="card-hover group">
+                                <Link key={article.title} to="/blog" className="card-hover group block rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-400">
                                     <div className="aspect-[16/9] overflow-hidden">
-                                        <img
-                                            src={article.img}
-                                            alt={article.title}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                            loading="lazy"
-                                        />
+                                        <img src={article.img} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                                     </div>
                                     <div className="card-body">
                                         <span className="badge-primary text-xs mb-3">{article.category}</span>
-                                        <h3 className="text-navy font-semibold text-base leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                                            {article.title}
-                                        </h3>
+                                        <h3 className="text-navy font-semibold text-base leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">{article.title}</h3>
                                         <p className="text-gray-400 text-xs">{article.date}</p>
                                     </div>
                                 </Link>
-                            ))
-                        )}
+                            ))}
+                        </div>
+                    )}
+                    
+                    {/* ET branding strip */}
+                    <div className="mt-8 flex items-center justify-center gap-3 text-gray-400">
+                        <div className="h-px bg-gray-200 flex-1 max-w-24" />
+                        <span className="text-xs">Powered by</span>
+                        <span className="font-bold text-sm text-gray-600">Economic Times RSS</span>
+                        <span className="text-xs text-green-500 font-bold">● Live</span>
+                        <div className="h-px bg-gray-200 flex-1 max-w-24" />
                     </div>
                 </div>
             </section>
 
             {/* CTA Banner */}
-            <section className="bg-navy py-16 md:py-20" aria-label="Call to Action">
-                <div className="container-custom text-center">
+            <section className="relative bg-navy py-20 md:py-28 overflow-hidden" aria-label="Call to Action">
+                {/* Decorative blobs */}
+                <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/25 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/20 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+                <div className="container-custom relative z-10 text-center">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.7 }}
                     >
-                        <h2 className="text-white font-display font-bold text-3xl md:text-5xl mb-6 leading-tight">
-                            Ready to Start Your Wealth Journey?
+                        <span className="badge bg-secondary/20 text-secondary border border-secondary/30 text-[11px] uppercase tracking-[0.2em] px-4 py-1.5 mb-8 inline-block">
+                            Free Consultation
+                        </span>
+                        <h2 className="text-white font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 leading-[1.1]">
+                            Start Your Wealth<br className="hidden md:block" /> Journey Today
                         </h2>
-                        <p className="text-blue-100 text-base md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-                            Book a free, no-obligation consultation with our CFP-certified advisor and get a personalized financial roadmap.
+                        <p className="text-blue-200 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                            Book a free, no-obligation consultation with our CFP-certified advisor and get a personalized financial roadmap tailored to your goals.
                         </p>
+
+                        {/* Feature pills */}
+                        <div className="flex flex-wrap justify-center gap-3 mb-10">
+                            {['25+ Years Experience', 'AMFI Registered', 'CFP Certified', 'Zero Hidden Charges', '8000+ Families'].map((pill) => (
+                                <span key={pill} className="flex items-center gap-1.5 bg-white/10 border border-white/15 text-white text-xs font-semibold px-4 py-2 rounded-full backdrop-blur-sm">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block" />
+                                    {pill}
+                                </span>
+                            ))}
+                        </div>
+
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                            <Link to="/contact" className="btn-secondary btn-lg w-full sm:w-auto">
+                            <Link to="/contact" className="btn-secondary btn-lg w-full sm:w-auto shadow-xl shadow-secondary/20">
                                 Book Free Consultation
                                 <ArrowRight size={18} />
                             </Link>
-                            <Link to="/risk-profile" className="btn-outline-white btn-lg w-full sm:w-auto">
+                            <Link to="/risk-profile" className="btn-outline-white btn-lg w-full sm:w-auto backdrop-blur-sm">
                                 Know Your Risk Profile
                             </Link>
                         </div>

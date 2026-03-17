@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Youtube, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Youtube, ArrowRight, Shield, TrendingUp, Award } from 'lucide-react';
 
 const FOOTER_SERVICES = [
     { label: 'Mutual Funds', path: '/services/mutual-funds' },
@@ -8,6 +8,15 @@ const FOOTER_SERVICES = [
     { label: 'Financial Planning', path: '/services/financial-planning' },
     { label: 'Retirement Planning', path: '/services/retirement' },
     { label: 'Taxation & ELSS', path: '/services/taxation' },
+];
+
+const FOOTER_QUICK = [
+    { label: 'About Us', path: '/about' },
+    { label: 'Our Team', path: '/about/team' },
+    { label: 'Our Philosophy', path: '/about/philosophy' },
+    { label: 'Fund Research', path: '/research' },
+    { label: 'Risk Profiling', path: '/risk-profile' },
+    { label: 'Investment Blog', path: '/blog' },
 ];
 
 const FOOTER_CALCULATORS = [
@@ -23,131 +32,148 @@ const FOOTER_LEGAL = [
     { label: 'Privacy Policy', path: '/privacy-policy' },
     { label: 'Terms of Service', path: '/terms-of-service' },
     { label: 'Disclosures', path: '/disclosures' },
-    { label: 'Commission Disclosure', path: '/disclosures' },
     { label: 'FAQs', path: '/faqs' },
-];
-
-const FOOTER_ABOUT = [
-    { label: 'About Us', path: '/about' },
-    { label: 'Our Team', path: '/about/team' },
-    { label: 'Our Philosophy', path: '/about/philosophy' },
-    { label: 'Contact Us', path: '/contact' },
 ];
 
 export default function Footer() {
     return (
-        <footer className="bg-navy text-white" role="contentinfo">
+        <footer className="bg-[#050e1d] text-white relative overflow-hidden" role="contentinfo">
+            {/* Ambient glow */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
+
             {/* Newsletter bar */}
-            <div className="bg-gradient-primary py-10">
-                <div className="container-custom">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div>
-                            <h3 className="text-white font-display font-semibold text-xl mb-1">
-                                Stay informed with market insights
-                            </h3>
-                            <p className="text-blue-200 text-sm">
-                                Subscribe to receive curated financial news, market updates, and investment tips.
-                            </p>
+            <div className="relative border-b border-white/5">
+                <div className="container-custom py-12">
+                    <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+                        <div className="text-center lg:text-left">
+                            <p className="text-secondary text-xs font-bold uppercase tracking-[0.2em] mb-2">Stay Ahead of the Markets</p>
+                            <h3 className="text-white font-display font-bold text-2xl">Get Weekly Market Insights</h3>
+                            <p className="text-blue-300/70 text-sm mt-1">Curated financial tips, fund updates, and investment strategies.</p>
                         </div>
-                        <form className="flex gap-2 w-full md:w-auto" onSubmit={(e) => e.preventDefault()}>
+                        <form
+                            className="flex gap-2 w-full max-w-md"
+                            onSubmit={(e) => e.preventDefault()}
+                        >
                             <input
                                 type="email"
                                 placeholder="Your email address"
-                                className="flex-1 md:w-64 px-4 py-2.5 rounded-xl bg-white/15 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:border-white focus:bg-white/20 transition-all"
+                                className="flex-1 px-5 py-3 rounded-xl bg-white/8 border border-white/15 text-white placeholder-blue-300/50 focus:outline-none focus:border-primary focus:bg-white/12 transition-all text-sm"
                                 aria-label="Email for newsletter"
                             />
-                            <button type="submit" className="btn-outline-white px-5 py-2.5 text-sm shrink-0">
+                            <button
+                                type="submit"
+                                className="shrink-0 bg-secondary hover:bg-secondary/90 text-white font-bold px-5 py-3 rounded-xl transition-all text-sm flex items-center gap-2"
+                            >
                                 Subscribe
+                                <ArrowRight size={14} />
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            {/* Main footer */}
-            <div className="py-14">
-                <div className="container-custom">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                        {/* Brand column */}
-                        <div className="lg:col-span-1">
-                            <Link to="/" className="flex flex-col mb-6 group w-fit" aria-label="Finfreedom33 Home">
-                                <div className="flex items-baseline gap-0.5 whitespace-nowrap">
-                                    <span className="font-serif font-bold text-white text-2xl tracking-tight leading-none">FinFreedom</span>
-                                    <span className="font-serif font-bold text-secondary text-2xl leading-none">33</span>
+            {/* Trust badges strip */}
+            <div className="border-b border-white/5">
+                <div className="container-custom py-6">
+                    <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
+                        {[
+                            { icon: Shield, text: 'AMFI Registered MFD', sub: 'ARN No. 144870' },
+                            { icon: Award, text: 'CFP® Certified', sub: 'FPSB India, Since 2009' },
+                            { icon: TrendingUp, text: '₹1800 Cr+ AUA', sub: 'Assets Under Advisory' },
+                        ].map(({ icon: Icon, text, sub }) => (
+                            <div key={text} className="flex items-center gap-3">
+                                <div className="w-9 h-9 rounded-xl bg-white/8 flex items-center justify-center shrink-0">
+                                    <Icon size={16} className="text-secondary" />
                                 </div>
-                                <span
-                                    className="text-blue-300 text-[7.5px] font-bold tracking-[0.02em] uppercase leading-none mt-1.5 w-full block"
-                                    style={{ textAlignLast: 'justify', textAlign: 'justify' }}
-                                >
+                                <div>
+                                    <p className="text-white text-sm font-bold leading-none">{text}</p>
+                                    <p className="text-blue-400/60 text-[11px] mt-0.5">{sub}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Main footer grid */}
+            <div className="relative py-16">
+                <div className="container-custom">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-10">
+
+                        {/* Brand column — wider */}
+                        <div className="xl:col-span-4">
+                            <Link to="/" className="flex flex-col mb-6 w-fit" aria-label="FinFreedom33 Home">
+                                <div className="flex items-baseline gap-0.5 whitespace-nowrap">
+                                    <span className="font-serif font-bold text-white text-3xl tracking-tight leading-none">FinFreedom</span>
+                                    <span className="font-serif font-bold text-secondary text-3xl leading-none">33</span>
+                                </div>
+                                <span className="text-blue-300/60 text-[8px] font-bold tracking-[0.04em] uppercase leading-none mt-2 w-full block"
+                                    style={{ textAlignLast: 'justify', textAlign: 'justify' }}>
                                     AMFI Registered Mutual Fund Distributor
                                 </span>
                             </Link>
-                            <p className="text-blue-200 text-sm leading-relaxed mb-5">
-                                AMFI Registered Mutual Fund Distributor helping individuals and families achieve financial freedom through disciplined, goal-based investing since 1999.
+
+                            <p className="text-blue-200/70 text-sm leading-relaxed mb-6 max-w-sm">
+                                Helping individuals and families achieve financial freedom through disciplined, goal-based investing since 1999. We are not just advisors — we are your lifelong financial partners.
                             </p>
-                            <div className="space-y-2.5">
-                                <a href="tel:+919327002340" className="flex items-start gap-2.5 text-blue-200 hover:text-white transition-colors text-sm">
-                                    <Phone size={14} className="mt-0.5 shrink-0 text-secondary" />
-                                    <span>+91-9327002340</span>
+
+                            {/* Contact info */}
+                            <div className="space-y-3 mb-8">
+                                <a href="tel:+919327002340" className="flex items-center gap-3 text-blue-200/80 hover:text-white transition-colors text-sm group">
+                                    <div className="w-8 h-8 rounded-lg bg-white/6 flex items-center justify-center shrink-0 group-hover:bg-secondary/20 transition-colors">
+                                        <Phone size={14} className="text-secondary" />
+                                    </div>
+                                    <span>+91 93270 02340</span>
                                 </a>
-                                <a href="mailto:nitin@finfreedom33.com" className="flex items-start gap-2.5 text-blue-200 hover:text-white transition-colors text-sm">
-                                    <Mail size={14} className="mt-0.5 shrink-0 text-secondary" />
+                                <a href="mailto:nitin@finfreedom33.com" className="flex items-center gap-3 text-blue-200/80 hover:text-white transition-colors text-sm group">
+                                    <div className="w-8 h-8 rounded-lg bg-white/6 flex items-center justify-center shrink-0 group-hover:bg-secondary/20 transition-colors">
+                                        <Mail size={14} className="text-secondary" />
+                                    </div>
                                     <span>nitin@finfreedom33.com</span>
                                 </a>
-                                <div className="flex items-start gap-2.5 text-blue-200 text-sm">
-                                    <MapPin size={14} className="mt-0.5 shrink-0 text-secondary" />
-                                    <span>Shantigram, Ahmedabad, India</span>
+                                <div className="flex items-start gap-3 text-blue-200/80 text-sm">
+                                    <div className="w-8 h-8 rounded-lg bg-white/6 flex items-center justify-center shrink-0 mt-0.5">
+                                        <MapPin size={14} className="text-secondary" />
+                                    </div>
+                                    <span>A-33, North Park Villa, Shantigram, Ahmedabad 382421</span>
                                 </div>
                             </div>
-                            {/* Socials */}
-                            <div className="flex items-center gap-3 mt-6">
+
+                            {/* Social icons */}
+                            <div className="flex items-center gap-2">
                                 {[
-                                    { icon: Facebook, href: '#', label: 'Facebook' },
-                                    { icon: Twitter, href: '#', label: 'Twitter' },
-                                    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                                    { icon: Youtube, href: '#', label: 'YouTube' },
-                                ].map(({ icon: Icon, href, label }) => (
+                                    { icon: Facebook, href: '#', label: 'Facebook', color: 'hover:bg-[#1877F2]' },
+                                    { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:bg-[#1DA1F2]' },
+                                    { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:bg-[#0077B5]' },
+                                    { icon: Youtube, href: '#', label: 'YouTube', color: 'hover:bg-[#FF0000]' },
+                                ].map(({ icon: Icon, href, label, color }) => (
                                     <a
                                         key={label}
                                         href={href}
                                         aria-label={label}
-                                        className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors"
+                                        className={`w-9 h-9 rounded-xl bg-white/8 border border-white/8 flex items-center justify-center ${color} hover:border-transparent transition-all duration-300`}
                                     >
-                                        <Icon size={14} />
+                                        <Icon size={15} />
                                     </a>
                                 ))}
                             </div>
                         </div>
 
                         {/* Services */}
-                        <div>
-                            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">Our Services</h4>
+                        <div className="xl:col-span-2">
+                            <h4 className="text-white font-bold text-xs uppercase tracking-[0.15em] mb-5 flex items-center gap-2">
+                                <span className="w-4 h-0.5 bg-secondary inline-block rounded" />
+                                Services
+                            </h4>
                             <ul className="space-y-2.5">
                                 {FOOTER_SERVICES.map((item) => (
                                     <li key={item.path}>
                                         <Link
                                             to={item.path}
-                                            className="text-blue-200 hover:text-white text-sm flex items-center gap-1.5 transition-colors group"
+                                            className="text-blue-200/70 hover:text-white text-sm flex items-center gap-2 transition-colors group"
                                         >
-                                            <ArrowRight size={12} className="text-secondary group-hover:translate-x-0.5 transition-transform" />
-                                            {item.label}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Calculators */}
-                        <div>
-                            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">Calculators</h4>
-                            <ul className="space-y-2.5">
-                                {FOOTER_CALCULATORS.map((item) => (
-                                    <li key={item.path}>
-                                        <Link
-                                            to={item.path}
-                                            className="text-blue-200 hover:text-white text-sm flex items-center gap-1.5 transition-colors group"
-                                        >
-                                            <ArrowRight size={12} className="text-secondary group-hover:translate-x-0.5 transition-transform" />
+                                            <ArrowRight size={11} className="text-secondary/70 group-hover:translate-x-0.5 transition-transform shrink-0" />
                                             {item.label}
                                         </Link>
                                     </li>
@@ -156,57 +182,76 @@ export default function Footer() {
                         </div>
 
                         {/* Quick Links */}
-                        <div>
-                            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">Quick Links</h4>
-                            <ul className="space-y-2.5 mb-8">
-                                {FOOTER_ABOUT.map((item) => (
+                        <div className="xl:col-span-2">
+                            <h4 className="text-white font-bold text-xs uppercase tracking-[0.15em] mb-5 flex items-center gap-2">
+                                <span className="w-4 h-0.5 bg-secondary inline-block rounded" />
+                                Quick Links
+                            </h4>
+                            <ul className="space-y-2.5">
+                                {FOOTER_QUICK.map((item) => (
                                     <li key={item.path}>
                                         <Link
                                             to={item.path}
-                                            className="text-blue-200 hover:text-white text-sm flex items-center gap-1.5 transition-colors group"
+                                            className="text-blue-200/70 hover:text-white text-sm flex items-center gap-2 transition-colors group"
                                         >
-                                            <ArrowRight size={12} className="text-secondary group-hover:translate-x-0.5 transition-transform" />
+                                            <ArrowRight size={11} className="text-secondary/70 group-hover:translate-x-0.5 transition-transform shrink-0" />
                                             {item.label}
                                         </Link>
                                     </li>
                                 ))}
                             </ul>
-                            
-                            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-4 opacity-50">Legal</h4>
-                            <ul className="space-y-2">
+                        </div>
+
+                        {/* Calculators */}
+                        <div className="xl:col-span-2">
+                            <h4 className="text-white font-bold text-xs uppercase tracking-[0.15em] mb-5 flex items-center gap-2">
+                                <span className="w-4 h-0.5 bg-secondary inline-block rounded" />
+                                Calculators
+                            </h4>
+                            <ul className="space-y-2.5">
+                                {FOOTER_CALCULATORS.map((item) => (
+                                    <li key={item.path}>
+                                        <Link
+                                            to={item.path}
+                                            className="text-blue-200/70 hover:text-white text-sm flex items-center gap-2 transition-colors group"
+                                        >
+                                            <ArrowRight size={11} className="text-secondary/70 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Legal */}
+                        <div className="xl:col-span-2">
+                            <h4 className="text-white font-bold text-xs uppercase tracking-[0.15em] mb-5 flex items-center gap-2">
+                                <span className="w-4 h-0.5 bg-secondary inline-block rounded" />
+                                Legal & Info
+                            </h4>
+                            <ul className="space-y-2.5 mb-8">
                                 {FOOTER_LEGAL.map((item) => (
                                     <li key={item.path}>
                                         <Link
                                             to={item.path}
-                                            className="text-blue-300/70 hover:text-white text-[13px] flex items-center gap-2 transition-colors"
+                                            className="text-blue-200/70 hover:text-white text-sm flex items-center gap-2 transition-colors group"
                                         >
+                                            <ArrowRight size={11} className="text-secondary/70 group-hover:translate-x-0.5 transition-transform shrink-0" />
                                             {item.label}
                                         </Link>
                                     </li>
                                 ))}
                             </ul>
-                            
-                            <div className="mt-6 pt-6 border-t border-white/10">
+
+                            {/* Mini CTA */}
+                            <div className="bg-gradient-to-br from-primary/20 to-secondary/10 border border-white/10 rounded-2xl p-5">
+                                <p className="text-white font-bold text-sm mb-2">Free Consultation</p>
+                                <p className="text-blue-300/70 text-xs mb-4">Talk to a CFP-certified advisor today.</p>
                                 <Link
-                                    to="/research"
-                                    className="flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors group"
+                                    to="/contact"
+                                    className="flex items-center gap-1.5 text-secondary font-bold text-xs hover:gap-2.5 transition-all"
                                 >
-                                    <span>Fund Research</span>
-                                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                                </Link>
-                                <Link
-                                    to="/risk-profile"
-                                    className="flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors group mt-2"
-                                >
-                                    <span>Risk Profiling</span>
-                                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                                </Link>
-                                <Link
-                                    to="/blog"
-                                    className="flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors group mt-2"
-                                >
-                                    <span>Investment Blog</span>
-                                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                                    Book Now <ArrowRight size={12} />
                                 </Link>
                             </div>
                         </div>
@@ -214,15 +259,29 @@ export default function Footer() {
                 </div>
             </div>
 
+            {/* Disclaimer */}
+            <div className="border-t border-white/5 py-6">
+                <div className="container-custom">
+                    <p className="text-blue-300/40 text-xs text-center leading-relaxed max-w-4xl mx-auto">
+                        Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.
+                        Past performance is not indicative of future results. FinFreedom33 LLP is an AMFI registered Mutual Fund Distributor.
+                    </p>
+                </div>
+            </div>
+
             {/* Bottom bar */}
-            <div className="border-t border-white/10 py-5">
+            <div className="border-t border-white/5 py-5">
                 <div className="container-custom flex flex-col md:flex-row items-center justify-between gap-3">
-                    <p className="text-blue-300 text-xs text-center md:text-left">
-                        © {new Date().getFullYear()} FinFreedom33 LLP. All rights reserved. | AMFI Registered Mutual Fund Distributor | ARN No.: 144870
+                    <p className="text-blue-300/50 text-xs text-center md:text-left">
+                        © {new Date().getFullYear()} FinFreedom33 LLP. All rights reserved. | AMFI Reg. MFD | ARN: 144870
                     </p>
-                    <p className="text-blue-300/60 text-xs text-center">
-                        Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully.
-                    </p>
+                    <div className="flex items-center gap-4">
+                        {FOOTER_LEGAL.slice(0, 3).map((item) => (
+                            <Link key={item.path} to={item.path} className="text-blue-300/40 hover:text-white text-xs transition-colors">
+                                {item.label}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             </div>
         </footer>
