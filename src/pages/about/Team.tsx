@@ -130,7 +130,7 @@ export default function Team() {
                         </p>
                     </div>
 
-                    {TEAM_CATEGORIES.map((category, catIdx) => (
+                    {TEAM_CATEGORIES.map((category) => (
                         <div key={category.title} className="mb-24 last:mb-0">
                             <div className="flex items-center gap-6 mb-12">
                                 <h3 className="text-3xl font-display font-bold text-navy flex items-center gap-3">
