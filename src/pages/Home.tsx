@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from 'react';
 import { blogService } from '../services/blogService';
 import type { BlogItem } from '../services/blogService';
 import YouTubeSection from '../components/home/YouTubeSection';
-import { Linkedin, Mail } from 'lucide-react';
 
 // Team Images
 import nitinPatel from '../assets/team/nitin patel.png';
@@ -444,12 +443,12 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { name: 'Nitin Patel', role: 'Founder & Director', img: nitinPatel, linkedin: '#' },
-                            { name: 'Anjali Patel', role: 'Founder & Director', img: anjaliPatel, linkedin: '#' },
-                            { name: 'Anishi Patel', role: 'Director', img: anishiPatel, linkedin: '#' },
-                            { name: 'Aditya Bhavsar', role: 'Sr. Executive', img: adityaBhavsar, linkedin: '#' },
+                            { name: 'Nitin Patel', role: 'Founder & Director', img: nitinPatel },
+                            { name: 'Anjali Patel', role: 'Founder & Director', img: anjaliPatel },
+                            { name: 'Anishi Patel', role: 'Director', img: anishiPatel },
+                            { name: 'Aditya Bhavsar', role: 'Sr. Executive', img: adityaBhavsar },
                         ].map((member, i) => (
                             <motion.div
                                 key={member.name}
@@ -459,21 +458,14 @@ export default function Home() {
                                 viewport={{ once: true }}
                                 className="group"
                             >
-                                <div className="card overflow-hidden border-0 shadow-premium group-hover:shadow-2xl transition-all duration-500 rounded-3xl bg-white p-2">
-                                    <div className="aspect-[4/5] overflow-hidden rounded-2xl mb-4">
-                                        <img src={member.img} alt={member.name} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
+                                <div className="relative rounded-3xl overflow-hidden shadow-premium hover:shadow-2xl hover:-translate-y-1 transition-all duration-500">
+                                    <div className="aspect-[3/4] overflow-hidden">
+                                        <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                                     </div>
-                                    <div className="px-4 pb-4">
-                                        <h4 className="text-navy font-bold text-base mb-1">{member.name}</h4>
-                                        <p className="text-primary text-[10px] uppercase tracking-wider font-bold mb-4">{member.role}</p>
-                                        <div className="flex gap-2">
-                                            <a href={member.linkedin} className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-gray-400 hover:bg-[#0077b5] hover:text-white transition-all">
-                                                <Linkedin size={14} />
-                                            </a>
-                                            <a href="mailto:contact@finfreedom33.com" className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all">
-                                                <Mail size={14} />
-                                            </a>
-                                        </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+                                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                                        <h4 className="text-white font-bold text-base leading-tight">{member.name}</h4>
+                                        <p className="text-blue-200 text-[11px] uppercase tracking-wider font-bold mt-1">{member.role}</p>
                                     </div>
                                 </div>
                             </motion.div>
