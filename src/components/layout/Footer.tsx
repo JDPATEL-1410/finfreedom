@@ -27,6 +27,13 @@ const FOOTER_LEGAL = [
     { label: 'FAQs', path: '/faqs' },
 ];
 
+const FOOTER_ABOUT = [
+    { label: 'About Us', path: '/about' },
+    { label: 'Our Team', path: '/about/team' },
+    { label: 'Our Philosophy', path: '/about/philosophy' },
+    { label: 'Contact Us', path: '/contact' },
+];
+
 export default function Footer() {
     return (
         <footer className="bg-navy text-white" role="contentinfo">
@@ -148,11 +155,11 @@ export default function Footer() {
                             </ul>
                         </div>
 
-                        {/* Legal & Quick Links */}
+                        {/* Quick Links */}
                         <div>
-                            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">Legal & Info</h4>
-                            <ul className="space-y-2.5">
-                                {FOOTER_LEGAL.map((item) => (
+                            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">Quick Links</h4>
+                            <ul className="space-y-2.5 mb-8">
+                                {FOOTER_ABOUT.map((item) => (
                                     <li key={item.path}>
                                         <Link
                                             to={item.path}
@@ -164,6 +171,21 @@ export default function Footer() {
                                     </li>
                                 ))}
                             </ul>
+                            
+                            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-4 opacity-50">Legal</h4>
+                            <ul className="space-y-2">
+                                {FOOTER_LEGAL.map((item) => (
+                                    <li key={item.path}>
+                                        <Link
+                                            to={item.path}
+                                            className="text-blue-300/70 hover:text-white text-[13px] flex items-center gap-2 transition-colors"
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                            
                             <div className="mt-6 pt-6 border-t border-white/10">
                                 <Link
                                     to="/research"

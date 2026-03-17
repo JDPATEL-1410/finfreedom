@@ -6,6 +6,13 @@ import { useEffect, useRef, useState } from 'react';
 import { blogService } from '../services/blogService';
 import type { BlogItem } from '../services/blogService';
 import YouTubeSection from '../components/home/YouTubeSection';
+import { Linkedin, Mail } from 'lucide-react';
+
+// Team Images
+import nitinPatel from '../assets/team/nitin patel.png';
+import anjaliPatel from '../assets/team/anjali patel.png';
+import anishiPatel from '../assets/team/anishi patel.png';
+import adityaBhavsar from '../assets/team/aditya bhavshar.png';
 
 
 const HERO_SLIDES = [
@@ -390,7 +397,6 @@ export default function Home() {
                                 </Link>
                             </div>
                         </motion.div>
-
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -416,6 +422,62 @@ export default function Home() {
                                 </div>
                             </div>
                         </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Team Highlight */}
+            <section className="section bg-surface overflow-hidden">
+                <div className="container-custom">
+                    <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+                        <div className="max-w-2xl">
+                            <p className="section-label">Our Experts</p>
+                            <h2 className="text-navy mb-4">The Minds Behind Your Wealth</h2>
+                            <div className="divider mb-4" />
+                            <p className="text-gray-500">
+                                Meet our dedicated team of professionals committed to shielding and growing your hard-earned money. From seasoned advisors to operation experts, we are here for you.
+                            </p>
+                        </div>
+                        <Link to="/about/team" className="btn-outline btn-sm group shrink-0">
+                            Meet the Full Team
+                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {[
+                            { name: 'Nitin Patel', role: 'Founder & Director', img: nitinPatel, linkedin: '#' },
+                            { name: 'Anjali Patel', role: 'Founder & Director', img: anjaliPatel, linkedin: '#' },
+                            { name: 'Anishi Patel', role: 'Director', img: anishiPatel, linkedin: '#' },
+                            { name: 'Aditya Bhavsar', role: 'Sr. Executive', img: adityaBhavsar, linkedin: '#' },
+                        ].map((member, i) => (
+                            <motion.div
+                                key={member.name}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: i * 0.1 }}
+                                viewport={{ once: true }}
+                                className="group"
+                            >
+                                <div className="card overflow-hidden border-0 shadow-premium group-hover:shadow-2xl transition-all duration-500 rounded-3xl bg-white p-2">
+                                    <div className="aspect-[4/5] overflow-hidden rounded-2xl mb-4">
+                                        <img src={member.img} alt={member.name} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
+                                    </div>
+                                    <div className="px-4 pb-4">
+                                        <h4 className="text-navy font-bold text-base mb-1">{member.name}</h4>
+                                        <p className="text-primary text-[10px] uppercase tracking-wider font-bold mb-4">{member.role}</p>
+                                        <div className="flex gap-2">
+                                            <a href={member.linkedin} className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-gray-400 hover:bg-[#0077b5] hover:text-white transition-all">
+                                                <Linkedin size={14} />
+                                            </a>
+                                            <a href="mailto:contact@finfreedom33.com" className="w-8 h-8 rounded-full bg-surface flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all">
+                                                <Mail size={14} />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
