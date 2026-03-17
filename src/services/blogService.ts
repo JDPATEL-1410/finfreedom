@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export interface BlogItem {
     id: string;
@@ -15,7 +15,7 @@ export interface BlogItem {
 export const blogService = {
     getLatestPosts: async (): Promise<BlogItem[]> => {
         try {
-            const response = await axios.get(`${API_BASE}/blog/latest`);
+            const response = await axios.get(`${API_BASE}/api/blog/latest`);
             return response.data;
         } catch (error) {
             console.error('Error in blogService.getLatestPosts:', error);

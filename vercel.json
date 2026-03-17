@@ -1,8 +1,16 @@
 {
     "rewrites": [
         {
-            "source": "/api/(.*)",
-            "destination": "/api/index.js"
+            "source": "/api/blog/latest",
+            "destination": "/api/blog/latest.js"
+        },
+        {
+            "source": "/api/contact/submit",
+            "destination": "/api/contact/submit.js"
+        },
+        {
+            "source": "/api/health",
+            "destination": "/api/health.js"
         },
         {
             "source": "/((?!api/).*)",
